@@ -1,0 +1,95 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "information_for_contributors": [
+    "PyTV grammar support. Visit docs.rs/pytv for more information."
+  ],
+  "name": "PyTV",
+  "scopeName": "source.pytv",
+  "fileTypes": [".pytv"],
+  "patterns": [
+    {
+      "include": "#python_block"
+    }
+  ],
+  "repository": {
+    "python_block": {
+      "patterns": [
+        {
+          "begin": "(.*)(\\/\\*\\!\\s*)(.*$)",
+          "end": "(.*)(\\*\\/\\s*)(.*$)",
+          "beginCaptures": {
+            "1": {
+              "patterns": [
+                {
+                  "match": "\\s+",
+                  "name": "comment.block.pytv"
+                },
+                {
+                  "match": "\\S+",
+                  "name": "invalid.illegal.pytv"
+                }
+              ]
+            },
+            "2": {
+              "name": "comment.block.pytv"
+            },
+            "3": {
+              "name": "invalid.illegal.pytv"
+            }
+          },
+          "endCaptures": {
+            "1": {
+              "patterns": [
+                {
+                  "match": "\\s+",
+                  "name": "comment.block.pytv"
+                },
+                {
+                  "match": "\\S+",
+                  "name": "invalid.illegal.pytv"
+                }
+              ]
+            },
+            "2": {
+              "name": "comment.block.pytv"
+            },
+            "3": {
+              "name": "invalid.illegal.pytv"
+            }
+          },
+          "name": "meta.embedded.block.python",
+          "patterns": [
+            {
+              "include": "source.python"
+            }
+          ]
+        }
+      ]
+    },
+    "python_inline": {
+      "patterns": [
+        {
+          "begin": "\\/\\/!",
+          "end": "$",
+          "name": "meta.embedded.block.python",
+          "patterns": [
+            {
+              "include": "source.python"
+            }
+          ]
+        }
+      ]
+    },
+    "inst": {
+      
+    },
+    "verilog": {
+      "patterns": [
+        {
+          "match": "\\/\\/.*$",
+          "name": "comment.line.double-slash.verilog.pytv"
+        }
+      ]
+    }
+  }
+}

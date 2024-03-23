@@ -1,0 +1,37 @@
+`timescale 1ns / 1ps
+Do nothing here!
+//! for i in range(5):
+//!     print("Teddy bear!")
+Do nothing here either! { some content }
+//! a = 2
+`1 + 2` and how about here ` a * 2 `
+//! <INST>
+//! module: test
+//! name: inst_test
+//! vparams:
+//!   N: 8
+//! parameters:
+//!   name1: value1
+//!   name2: value2
+//!   name`1+2`: `a`
+//! ports:
+//!   port1: net1
+//! </INST>
+wire x;
+assign x = y;
+
+/*!
+# Contents within here are for Python block
+for i in range(5):
+    print("// Teddy bear in Python block!")
+*/
+
+//! ted = "teddy"
+// another inst here ->
+//! <INST>
+//! module: another_test
+//! name: another_inst_`ted`
+//! ports:
+//!   port1: y
+//!   port2: z
+//! </INST>
