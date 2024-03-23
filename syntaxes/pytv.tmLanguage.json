@@ -9,6 +9,9 @@
   "patterns": [
     {
       "include": "#python_block"
+    },
+    {
+      "include": "#python_inline"
     }
   ],
   "repository": {
@@ -69,7 +72,24 @@
     "python_inline": {
       "patterns": [
         {
-          "begin": "\\/\\/!",
+          "begin": "(.*)(\\/\\/!)",
+          "beginCaptures": {
+            "1": {
+              "patterns": [
+                {
+                  "match": "\\s+",
+                  "name": "comment.line.double-slash.pytv"
+                },
+                {
+                  "match": "\\S+",
+                  "name": "invalid.illegal.pytv"
+                }
+              ]
+            },
+            "2": {
+              "name": "comment.line.double-slash.pytv"
+            }
+          },
           "end": "$",
           "name": "meta.embedded.block.python",
           "patterns": [
