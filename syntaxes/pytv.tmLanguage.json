@@ -11,6 +11,9 @@
       "include": "#python_block"
     },
     {
+      "include": "#inst"
+    },
+    {
       "include": "#python_inline"
     }
   ],
@@ -72,7 +75,7 @@
     "python_inline": {
       "patterns": [
         {
-          "begin": "(.*)(\\/\\/!)",
+          "begin": "^(.*)(\\/\\/!)",
           "beginCaptures": {
             "1": {
               "patterns": [
@@ -101,7 +104,85 @@
       ]
     },
     "inst": {
-      
+      "begin": "(.*)(\\/\\/!)\\s*(<INST>)\\s*(.*$)",
+      "beginCaptures": {
+        "1": {
+          "patterns": [
+            {
+              "match": "\\s+",
+              "name": "comment.line.double-slash.pytv"
+            },
+            {
+              "match": "\\S+",
+              "name": "invalid.illegal.pytv"
+            }
+          ]
+        },
+        "2": {
+          "name": "comment.line.double-slash.pytv"
+        },
+        "3": {
+          "name": "keyword.control.pytv"
+        },
+        "4": {
+          "name": "invalid.illegal.pytv"
+        }
+      },
+      "end": "(.*)(\\/\\/!)\\s*(</INST>)\\s*(.*$)",
+      "endCaptures": {
+        "1": {
+          "patterns": [
+            {
+              "match": "\\s+",
+              "name": "comment.line.double-slash.pytv"
+            },
+            {
+              "match": "\\S+",
+              "name": "invalid.illegal.pytv"
+            }
+          ]
+        },
+        "2": {
+          "name": "comment.line.double-slash.pytv"
+        },
+        "3": {
+          "name": "keyword.control.pytv"
+        },
+        "4": {
+          "name": "invalid.illegal.pytv"
+        }
+      },
+      "patterns": [
+        {
+          "match": "^\\s*\\/\\/!",
+          "name": "comment.line.double-slash.pytv"
+        },
+        {
+          "match": "\\s*(.+)\\s*:\\s*$",
+          "captures": {
+            "1": {
+              "name": "keyword.other.pytv"
+            }
+          }
+        },
+        {
+          "match": "\\s*(.+)\\s*:\\s*(.+)$",
+          "captures": {
+            "1": {
+              "patterns": [
+                {
+                  "match": "!.+$",
+                  "name": "entity.name.class"
+                }
+              ],
+              "name": "keyword.other.pytv"
+            },
+            "2": {
+              "name": "string.quoted.single.pytv"
+            }
+          }
+        }
+      ]
     },
     "verilog": {
       "patterns": [
