@@ -8,10 +8,10 @@
     "vscode": "^1.73.0"
   },
   "author": {
-		"name": "Wuqiong Zhao",
-		"email": "me@wqzhao.org",
-		"url": "https://wqzhao.org"
-	},
+    "name": "Wuqiong Zhao",
+    "email": "me@wqzhao.org",
+    "url": "https://wqzhao.org"
+  },
   "categories": [
     "Programming Languages",
     "Debuggers"
@@ -21,12 +21,9 @@
   ],
   "license": "MIT License",
   "repository": {
-		"type": "git",
-		"url": "https://github.com/autohdw/pytv-vscode"
-	},
-  "extensionDependencies": [
-    "mshr-h.veriloghdl"
-  ],
+    "type": "git",
+    "url": "https://github.com/autohdw/pytv-vscode"
+  },
   "main": "./out/extension.js",
   "browser": "./out/extension.js",
   "contributes": {
